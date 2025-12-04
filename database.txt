@@ -1,0 +1,36 @@
+-- Database Analysis --
+[
+    - users => [id | name | email | password | type]
+
+    - categories => [id | name | description]
+
+    - tags => [id | name]
+
+    - products => [id | name | description | price | quantity | category_id]
+
+    - tag_product => [tag_id | product_id]
+
+    - images => [id | path | type | imageable_id | imageable_type]
+
+    - reviews => [id | product_id | user_id | star | comment]
+
+    - carts => [id | user_id | product_id | price | quantity | total]
+
+    - orders => [id | user_id | total]
+
+    - order_items => [id | user_id | order_id| product_id | price | quantity | total]
+
+    - payment => [id | user_id, order_id | total | payment_method | transaction_number]
+
+    - testimonials => [id | user_id | comment]
+
+    - sliders => [id | title | subtitle | status | order]
+
+    - notification
+
+    - roles
+
+    - permissions
+
+    - permission_role
+]

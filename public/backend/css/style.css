@@ -1,0 +1,66 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url('../fonts//Poppins/Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Poppins-Bold';
+    src: url('../fonts//Poppins/Poppins-Bold.ttf');
+}
+
+body {
+    font-family: 'Poppins' !important;
+}
+
+.fl-title,
+.sidebar-brand-text {
+    font-family: 'Poppins-Bold' !important;
+}
+
+.sidebar-brand-text {
+    font-size: 20px;
+}
+
+.fl-message {
+    font-family: 'Poppins' !important;
+}
+
+.bg-gradient-primary,
+.dropdown-header {
+    background: linear-gradient(45deg, #2c3e50, #34495e) !important;
+}
+
+.dropdown .dropdown-menu .dropdown-header,
+.sidebar .sidebar-heading,
+.text-uppercase {
+    text-transform: none !important;
+    font-size: .85rem;
+}
+
+.h3 {
+    font-family: 'Poppins-Bold' !important;
+}
+
+.collapse-item.active {
+    color: #2c3e50 !important;
+}
+
+th,
+td,
+label,
+input,
+textarea {
+    color: #2c3e50 !important;
+}
+
+.btn-primary {
+    background-color: #34495e !important;
+}
+
+.btn-primary:hover {
+    background-color: #2c3e50 !important;
+}
+
+.actions div {
+    margin: 0 3px;
+}
