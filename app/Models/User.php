@@ -3,14 +3,17 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, HasRoles;
+
+    protected $guard_name = 'web';
 
     /**
      * The attributes that are mass assignable.
@@ -21,6 +24,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'type'
     ];
 
     /**
@@ -44,5 +48,35 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
+
+    function reviews()
+    {
+        return $this->hasMany(Review::class)->withDefault();
+    }
+
+    function carts()
+    {
+        return $this->hasMany(Cart::class)->withDefault();
+    }
+
+    function orders()
+    {
+        return $this->hasMany(Order::class)->withDefault();
+    }
+
+    function order_items()
+    {
+        return $this->hasMany(OrderItems::class)->withDefault();
+    }
+
+    function testimonials()
+    {
+        return $this->hasMany(Testimonial::class)->withDefault();
     }
 }

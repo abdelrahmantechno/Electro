@@ -9,4 +9,14 @@ class Category extends Model
     //
 
     protected $guarded = [];
+
+    function products()
+    {
+        return $this->hasMany(Product::class)->withDefault();
+    }
+
+    function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
 }

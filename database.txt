@@ -8,7 +8,7 @@
 
     - products => [id | name | description | price | quantity | category_id]
 
-    - tag_product => [tag_id | product_id]
+    - product_tag => [tag_id | product_id]
 
     - images => [id | path | type | imageable_id | imageable_type]
 
@@ -20,11 +20,11 @@
 
     - order_items => [id | user_id | order_id| product_id | price | quantity | total]
 
-    - payment => [id | user_id, order_id | total | payment_method | transaction_number]
-
     - testimonials => [id | user_id | comment]
 
     - sliders => [id | title | subtitle | status | order]
+
+    - payment => [id | user_id, order_id | total | payment_method | transaction_number]
 
     - notification
 

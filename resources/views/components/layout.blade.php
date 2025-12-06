@@ -64,12 +64,12 @@
             <!-- Categories -->
             <li
                 class="nav-item {{ request()->routeIs('categories.index') || request()->routeIs('categories.create') ? 'active' : '' }}">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne"
-                    aria-expanded="true" aria-controls="collapseOne">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCategories"
+                    aria-expanded="true" aria-controls="collapseCategories">
                     <i class="fas fa-th-large"></i>
                     <span>Categories</span>
                 </a>
-                <div id="collapseOne"
+                <div id="collapseCategories"
                     class="collapse {{ request()->routeIs('categories.index') || request()->routeIs('categories.create') ? 'show' : '' }}"
                     aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
@@ -83,15 +83,79 @@
 
             <!-- products -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProducts"
+                    aria-expanded="true" aria-controls="collapseProducts">
                     <i class="fas fa-box-open"></i>
                     <span>products</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseProducts" class="collapse" aria-labelledby="headingTwo"
+                    data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="buttons.html">All Products</a>
                         <a class="collapse-item" href="cards.html">Add New</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Users -->
+            <li
+                class="nav-item {{ request()->routeIs('users.index') || request()->routeIs('users.create') ? 'active' : '' }}">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsers"
+                    aria-expanded="true" aria-controls="collapseUsers">
+                    <i class="fas fa-users"></i>
+                    <span>Users</span>
+                </a>
+                <div id="collapseUsers"
+                    class="collapse {{ request()->routeIs('users.index') || request()->routeIs('users.create') ? 'show' : '' }}"
+                    aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item {{ request()->routeIs('users.index') ? 'active' : '' }}"
+                            href="{{ route('users.index') }}">All Users</a>
+                        <a class="collapse-item {{ request()->routeIs('users.create') ? 'active' : '' }}"
+                            href="{{ route('users.create') }}">Add New</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Roles -->
+            <li
+                class="nav-item {{ request()->routeIs('roles.index') || request()->routeIs('roles.create') ? 'active' : '' }}">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRoles"
+                    aria-expanded="true" aria-controls="collapseRoles">
+                    <i class="fas fa-user-cog"></i>
+
+                    <span>Roles</span>
+                </a>
+                <div id="collapseRoles"
+                    class="collapse {{ request()->routeIs('roles.index') || request()->routeIs('roles.create') ? 'show' : '' }}"
+                    aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item {{ request()->routeIs('roles.index') ? 'active' : '' }}"
+                            href="{{ route('roles.index') }}">All Roles</a>
+                        <a class="collapse-item {{ request()->routeIs('roles.create') ? 'active' : '' }}"
+                            href="{{ route('roles.create') }}">Add New</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Permissions -->
+            <li
+                class="nav-item {{ request()->routeIs('permissions.index') || request()->routeIs('permissions.create') ? 'active' : '' }}">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse"
+                    data-target="#collapsePermissions" aria-expanded="true" aria-controls="collapsePermissions">
+                    <i class="fas fa-key"></i>
+
+
+                    <span>Permissions</span>
+                </a>
+                <div id="collapsePermissions"
+                    class="collapse {{ request()->routeIs('permissions.index') || request()->routeIs('permissions.create') ? 'show' : '' }}"
+                    aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item {{ request()->routeIs('permissions.index') ? 'active' : '' }}"
+                            href="{{ route('permissions.index') }}">All Permissions</a>
+                        <a class="collapse-item {{ request()->routeIs('permissions.create') ? 'active' : '' }}"
+                            href="{{ route('permissions.create') }}">Add New</a>
                     </div>
                 </div>
             </li>
