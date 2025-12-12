@@ -4,7 +4,7 @@
     <label for="{{ $name }}" class="form-label">{{ $label }}</label>
     <input type="{{ $type }}" name="{{ $name }}" placeholder="{{ $placeholder }}"
         value="{{ old($name, $oldValue) }}" id="{{ $name }}"
-        class="form-control @error($name) is-invalid @enderror">
+        class="form-control @error($name) is-invalid @enderror" {{ $attributes }}>
     @error($name)
         <div class="invalid-feedback">
             {{ $message }}

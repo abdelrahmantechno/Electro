@@ -1,14 +1,14 @@
 <x-layout>
-    <h1 class="h3 mb-4 text-gray-800">Roles</h1>
+    <h1 class="h3 mb-4 text-gray-800">{{ __('Roles') }}</h1>
     <div class="card">
         <div class="card-body text-black">
             <table class="table table-bordered table-hover">
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Name</th>
-                        <th>Permissions</th>
-                        <th>Actions</th>
+                        <th>{{ __('Name') }}</th>
+                        <th>{{ __('Permissions') }}</th>
+                        <th>{{ __('Actions') }}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -41,7 +41,7 @@
                                 </div>
                             </td>
                         @empty
-                            <td class="text-center" colspan="6">No roles</td>
+                            <td class="text-center" colspan="6">{{ __('No roles') }}</td>
                         </tr>
                     @endforelse
                 </tbody>

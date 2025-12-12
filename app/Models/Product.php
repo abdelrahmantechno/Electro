@@ -2,10 +2,14 @@
 
 namespace App\Models;
 
+use App\Traits\Trans;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+
+    use Trans;
+
     protected $guarded = [];
 
     function category()
@@ -37,5 +41,10 @@ class Product extends Model
     function order_items()
     {
         return $this->hasMany(OrderItems::class)->withDefault();
+    }
+
+    function getImgPathAttribute()
+    {
+        return asset('images/' . $this->image->path);
     }
 }

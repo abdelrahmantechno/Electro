@@ -1,12 +1,13 @@
 <x-layout>
-    <h1 class="h3 mb-4 text-gray-800">Edit Role</h1>
+    <h1 class="h3 mb-4 text-gray-800">{{ __('Edit Role') }}</h1>
     <div class="card">
         <div class="card-body">
             <form action="{{ route('roles.update', $role->id) }}" method="POST">
                 @csrf
-                <x-input type="text" name="name" label="Name" placeholder="Enter name" :oldValue="$role->name" />
+                <x-input type="text" name="name" label="{{ __('Name') }}" placeholder="{{ __('Enter name') }}"
+                    :oldValue="$role->name" />
                 <div class="mb-3">
-                    <label class="form-label">Assign Permissions</label>
+                    <label class="form-label">{{ __('Assign Permissions') }}</label>
                     <div class="row">
                         @foreach ($permissions as $permission)
                             <div class="col-md-3">
@@ -22,7 +23,7 @@
                         @endforeach
                     </div>
                 </div>
-                <button class="btn btn-primary">Update</button>
+                <button class="btn btn-primary">{{ __('Update') }}</button>
             </form>
         </div>
     </div>

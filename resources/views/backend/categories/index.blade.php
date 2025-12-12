@@ -1,53 +1,54 @@
 <x-layout>
-    <h1 class="h3 mb-4 text-gray-800">Categories</h1>
+    <h1 class="h3 mb-4 text-gray-800">{{ __('Categories') }}</h1>
     <div class="card">
         <div class="card-body text-black">
-            <table class="table table-bordered table-hover">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        {{-- <th>Image</th> --}}
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Created At</th>
-                        <th>Updated At</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse ($categories as $category)
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
                         <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            {{-- <td>{{ $category->image() }}</td> --}}
-                            <td>{{ $category->name }}</td>
-                            <td>{{ $category->description }}</td>
-                            <td>{{ $category->created_at->diffForHumans() }}</td>
-                            <td>{{ $category->updated_at->diffForHumans() }}</td>
-                            <td class="actions d-flex align-items-center gap-2">
-                                <div>
+                            <th>#</th>
+                            <th>{{ __('Name') }}</th>
+                            <th>{{ __('Image') }}</th>
+                            <th>{{ __('Description') }}</th>
+                            <th>{{ __('Products Count') }}</th>
+                            <th>{{ __('Created At') }}</th>
+                            <th>{{ __('Updated At') }}</th>
+                            <th>{{ __('Actions') }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse ($categories as $category)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $category->trans_name }}</td>
+                                <td><img src="{{ $category->img_path }}" alt="" width="80"></td>
+                                <td>{{ $category->trans_description }}</td>
+                                <td>{{ $category->products->count() }}</td>
+                                <td>{{ $category->created_at->diffForHumans() }}</td>
+                                <td>{{ $category->updated_at->diffForHumans() }}</td>
+                                <td class="actions">
                                     <a href="{{ route('categories.edit', $category) }}"
-                                        class="btn btn-sm btn-primary d-flex align-items-center justify-content-center"
-                                        title="Edit">
-                                        <i class="fas fa-edit"></i></a>
-                                </div>
-                                <div>
-                                    <form id="myForm" action="{{ route('categories.destroy', $category->id) }}"
-                                        method="POST" class="m-0 p-0">
+                                        class="btn btn-sm btn-primary mx-1" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+
+                                    <form action="{{ route('categories.destroy', $category->id) }}" method="POST"
+                                        class="d-inline">
                                         @csrf
                                         @method('DELETE')
-                                        <button
-                                            class="btn btn-sm btn-danger d-flex align-items-center justify-content-center"
-                                            title="Delete">
-                                            <i class="fas fa-trash"></i></button>
+                                        <button class="btn btn-sm btn-danger mx-1" title="Delete">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
                                     </form>
-                                </div>
-                            </td>
-                        @empty
-                            <td class="text-center" colspan="6">No Categories</td>
-                        </tr>
-                    @endforelse
-                </tbody>
-            </table>
+                                </td>
+
+                            @empty
+                                <td class="text-center" colspan="7">{{ __('No Categories') }}</td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     @push('js')

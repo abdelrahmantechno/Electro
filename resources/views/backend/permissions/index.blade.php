@@ -1,5 +1,5 @@
 <x-layout>
-    <h1 class="h3 mb-4 text-gray-800">Permissions</h1>
+    <h1 class="h3 mb-4 text-gray-800">{{ __('Permissions') }}</h1>
     <div class="card">
         <div class="card-body text-black">
             <table class="table table-bordered table-hover">
@@ -7,10 +7,10 @@
                     <tr>
                         <th>#</th>
                         {{-- <th>Image</th> --}}
-                        <th>Name</th>
-                        <th>Created At</th>
-                        <th>Updated At</th>
-                        <th>Actions</th>
+                        <th>{{ __('Name') }}</th>
+                        <th>{{ __('Created At') }}</th>
+                        <th>{{ __('Updated At') }}</th>
+                        <th>{{ __('Actions') }}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,7 +40,7 @@
                                 </div>
                             </td>
                         @empty
-                            <td class="text-center" colspan="6">No permissions</td>
+                            <td class="text-center" colspan="6">{{ __('No permissions') }}</td>
                         </tr>
                     @endforelse
                 </tbody>
